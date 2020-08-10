@@ -1,6 +1,23 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
 
-});
+var btn = document.getElementById("btn");
+var user = document.getElementById("user");
+var password = document.getElementById("password");
+
+var alert = document.getElementById("alert")
+
+
+function checkData(e){
+    if(user.value === "" || password.value === ""){
+        alert.className = "alert alert-warning"
+        alert.innerHTML= `<strong>Usuario y/o contraseña incorrectos.</strong>`
+        e.preventDefault();
+
+    }else{
+        window.location.href = "index.html";
+        e.preventDefault();
+    }
+}
+
+btn.addEventListener('click', checkData)
+
+
