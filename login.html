@@ -8,36 +8,66 @@
   <meta name="description" content="">
   <title>eMercado - Todo lo que busques está aquí</title>
 
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <!-- <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/"> -->
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
   <!-- Main css -->
   <link rel="stylesheet" href="css/login.css">
 </head>
 
+
 <body>
-  <div class="main">
-    <div class="container">
-      <div class="img">
-        <img src="img/login img.svg">
-      </div>
-      <div class="content">
-        <form>
-          <h2 class="title">Iniciar Sesión</h2>
-                     <div class="data">
-                       <h5>Usuario</h5>
-                         <input type="text" name="user" placeholder="Ingrese su usuario" required>
-                     </div>
-                     <div class="data">
-                        <h5>Contraseña</h5>
-                        <input type="password" name="password" placeholder="Ingrese su contraseña" required>
-                    </div>
-                 <input type="submit" role="link" onclick="location.href=`index.html`" value="Login"></input>
-               </form>
-           </div>
-       </div>
-       <img class="wave" src="img/wave.svg">
-  </div>
+    <!-- <div class="login">
+
+      <form>
+         <h5>Usuario</h5>
+         <input type="text" id="user" placeholder="Ingrese su usuario">
+         <h5>Contraseña</h5>
+         <input type="password" id="password" placeholder="Ingrese su contraseña">
+      </form>
+
+      <div id="alert"></div>
+      <button id="btn">Login</button>
+
+    </div> -->
+
+    <img class="wave" src="img/wave.svg">
+	<div class="container">
+		<div class="img">
+			<img src="img/login img.svg">
+		</div>
+		<div class="login-content">
+			<form method="POST">
+				<div id="login">
+          <img src="img/login 2.png">
+        </div>
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div">
+           		   		<h5>Usuario</h5>
+           		   		<input id="user" type="text" class="input">
+           		   </div>
+           		</div>
+           		<div class="input-div pass">
+           		   <div class="i"> 
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<h5>Contraseña</h5>
+           		    	<input id="password" type="password" class="input">
+            	   </div>
+            	</div>
+              <!-- <a href="#">Forgot Password?</a> -->
+              <div id="alert"></div>
+            	<input id="btn" type="submit" class="btn" value="Ingresar">
+            </form>
+        </div>
+    </div>
+  
+  <script src="js/login.js"></script>
 </body>
 </html>
+
