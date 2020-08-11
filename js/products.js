@@ -33,3 +33,5 @@ getJSONData(PRODUCTS_URL).then(json =>{
         showProductsList(json.data);
     }
 });
+
+});
