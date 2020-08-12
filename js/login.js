@@ -1,14 +1,14 @@
 
 // Validación del login
 var btn = document.getElementById("btn");
-var user = document.getElementById("user");
-var password = document.getElementById("password");
+var user = document.getElementById("user").value;
+var password = document.getElementById("password").value;
 
 var alert = document.getElementById("alert")
 
 
 function checkData(e){
-    if(user.value === "" || password.value === ""){
+    if(user === "" || password === ""){
         alert.innerHTML= `<strong>Usuario y/o contraseña incorrectos.</strong>`
         e.preventDefault();
 
