@@ -40,8 +40,17 @@ var getJSONData = function(url){
     });
 }
 
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
+//Función que verifica que el usuario esté logueado.
 document.addEventListener("DOMContentLoaded", function(e){
+  let user = localStorage.getItem("user");
+  let password = localStorage.getItem("password");
+  
+  function checkLogin(){
+
+     if(user = null || password = null){
+      window.location.href= "login.html";
+    }
+  }
+
+
 });
