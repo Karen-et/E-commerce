@@ -15,8 +15,15 @@ function checkData(e){
     }else{
         window.location.href = "index.html";
         e.preventDefault();
-    }
+	}
+	
+	// Almacenar los datos en localStorage
+
+localStorage.setItem("user", user)
+localStorage.setItem("password", password)
 }
+
+
 
 btn.addEventListener('click', checkData)
 
