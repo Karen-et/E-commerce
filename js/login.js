@@ -1,14 +1,14 @@
 
 // Validación del login
 var btn = document.getElementById("btn");
-var user = document.getElementById("user").value;
-var password = document.getElementById("password").value;
+var user = document.getElementById("user");
+var password = document.getElementById("password");
 
 var alert = document.getElementById("alert")
 
 
 function checkData(e){
-    if(user === "" || password === ""){
+    if(user.value === "" || password.value === ""){
         alert.innerHTML= `<strong>Usuario y/o contraseña incorrectos.</strong>`
         e.preventDefault();
 
@@ -19,8 +19,8 @@ function checkData(e){
 	
 	// Almacenar los datos en localStorage
 
-localStorage.setItem("user", user)
-localStorage.setItem("password", password)
+localStorage.setItem("user", user.value)
+localStorage.setItem("password", password.value)
 }
 
 
