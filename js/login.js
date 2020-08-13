@@ -1,4 +1,5 @@
 
+
 // Validación del login
 var btn = document.getElementById("btn");
 var user = document.getElementById("user");
@@ -13,17 +14,17 @@ function checkData(e){
         e.preventDefault();
 
     }else{
-        window.location.href = "index.html";
-        e.preventDefault();
+    // Almacenar los datos en localStorage
+
+    localStorage.setItem("user", user.value);
+    localStorage.setItem("password", password.value);
+
+    window.location.href = "index.html";
+    e.preventDefault();
 	}
 	
-	// Almacenar los datos en localStorage
-
-localStorage.setItem("user", user.value)
-localStorage.setItem("password", password.value)
+	
 }
-
-
 
 btn.addEventListener('click', checkData)
 
