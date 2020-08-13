@@ -42,7 +42,7 @@ var getJSONData = function(url){
 
 // Verificar que el usuario esté logueado
 document.addEventListener("DOMContentLoaded", event =>{
-  if (localStorage.getItem("user") === null) {
+  if (sessionStorage.getItem("user") === null) {
     window.location.href= "login.html"
   }
 });
