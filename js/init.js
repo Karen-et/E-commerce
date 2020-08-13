@@ -40,16 +40,10 @@ var getJSONData = function(url){
     });
 }
 
-//Función que verifica que el usuario este logueado.
-
-var user = localStorage.setItem("user", null);
-var password = localStorage.setItem("password", null);
-
-function checkLogin(){
-  if(user == null || password == null){
+// Verificar que el usuario esté logueado
+document.addEventListener("DOMContentLoaded", event =>{
+  if (localStorage.getItem("user") === null) {
     window.location.href= "login.html"
   }
-}
+});
 
-
-document.addEventListener("DOMContentLoaded", checkLogin);
