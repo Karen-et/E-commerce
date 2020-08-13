@@ -16,8 +16,8 @@ function checkData(e){
     }else{
     // Almacenar los datos en localStorage
 
-    localStorage.setItem("user", user.value);
-    localStorage.setItem("password", password.value);
+    sessionStorage.setItem("user", user.value);
+    sessionStorage.setItem("password", password.value);
 
     window.location.href = "index.html";
     e.preventDefault();
