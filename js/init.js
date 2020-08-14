@@ -41,9 +41,11 @@ var getJSONData = function(url){
 }
 
 // Verificar que el usuario esté logueado
-document.addEventListener("DOMContentLoaded", event =>{
+function checkUser(){
   if (sessionStorage.getItem("user") === null) {
     window.location.href= "login.html"
   }
-});
+};
+
+checkUser();
 
