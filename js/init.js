@@ -42,10 +42,11 @@ var getJSONData = function(url){
 
 // Verificar que el usuario esté logueado
 function checkUser(){
-  if (sessionStorage.getItem("user") === null) {
+  if (localStorage.getItem("user") === null) {
     window.location.href= "login.html"
   }
 };
 
 checkUser();
+
 
