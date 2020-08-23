@@ -1,5 +1,4 @@
 
-
 // Validación del login
 var btn = document.getElementById("btn");
 var user = document.getElementById("user");
@@ -15,10 +14,7 @@ function checkData(e){
 
     }else{
     // Almacenar los datos en localStorage
-
-    sessionStorage.setItem("user", user.value);
-    sessionStorage.setItem("password", password.value);
-
+    localStorage.setItem("user", user.value);
     window.location.href = "index.html";
     e.preventDefault();
 	}
