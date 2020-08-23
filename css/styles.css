@@ -139,3 +139,11 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+.link{
+  text-decoration: none;
+}
+
+#name{
+  color: aliceblue;
+}
