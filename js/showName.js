@@ -7,7 +7,7 @@
     console.log(user.value);
   
   
-     name.innerHTML = user;
+     name.innerHTML = user + " &#x2630";
   }
 
   showName();
