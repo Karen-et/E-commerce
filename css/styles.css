@@ -140,10 +140,33 @@ a.custom-card:hover {
   color: orange;
 }
 
-.link{
+a:link, a:visited, a:active {
+  text-decoration:none;
+}
+
+a:hover{
+	border-radius: 18px;
+	outline: none;
+	border: none;
+	background-image: linear-gradient(to right, #4D3F92, #0B71C4, #328FCD);
+	color: #fff;
+	cursor: pointer;
+	transition: .3s;
+  
+}
+
+li, ul {
   text-decoration: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 #name{
   color: aliceblue;
+  text-decoration: none;
+}
+
+#name:hover{
+  style: none;
 }
