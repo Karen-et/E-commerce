@@ -40,8 +40,8 @@ function showProductsList(){
     let htmlContentToAppend = "";
     for(let product of currentProductsArray){
 
-        if (((minCount == undefined) || (minCount != undefined && product.soldCount >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && product.soldCount <= maxCount))){
+        if (((minCount == undefined) || (minCount != undefined && product.cost >= minCount)) &&
+            ((maxCount == undefined) || (maxCount != undefined && product.cost <= maxCount))){
 
             htmlContentToAppend += `
             <div class="row">
@@ -88,19 +88,23 @@ document.addEventListener("DOMContentLoaded", e =>{
             sortAndShowProducts(ORDER_ASC_BY_PRICE, resultObj.data);
         }
     });
-
+    
+    // El usuario selecciona ordenar por menor precio.
     document.getElementById("sortAsc").addEventListener("click", function(){
         sortAndShowProducts(ORDER_ASC_BY_PRICE);
     });
 
+    // El usuario selecciona ordenar por mayor precio.
     document.getElementById("sortDesc").addEventListener("click", function(){
         sortAndShowProducts(ORDER_DESC_BY_PRICE);
     });
 
+    // El usuario selecciona ordenar por relevancia.
     document.getElementById("sortByCount").addEventListener("click", function(){
         sortAndShowProducts(ORDER_BY_SOLD_COUNT);
     });
 
+    // Limpia el filtro de precios
     document.getElementById("clearRangeFilter").addEventListener("click", function(){
         document.getElementById("rangeFilterCountMin").value = "";
         document.getElementById("rangeFilterCountMax").value = "";
@@ -117,15 +121,15 @@ document.addEventListener("DOMContentLoaded", e =>{
         minCount = document.getElementById("rangeFilterCountMin").value;
         maxCount = document.getElementById("rangeFilterCountMax").value;
 
-        if ((minCount != undefined) && (minCount != "") && (parseInt(minCount)) >= 0){
-            minCount = parseInt(minCount);
+        if ((minCount != undefined) && (minCount != "") && minCount >= 0){
+            minCount = minCount;
         }
         else{
             minCount = undefined;
         }
 
-        if ((maxCount != undefined) && (maxCount != "") && (parseInt(maxCount)) >= 0){
-            maxCount = parseInt(maxCount);
+        if ((maxCount != undefined) && (maxCount != "") && maxCount >= 0){
+            maxCount = maxCount;
         }
         else{
             maxCount = undefined;
