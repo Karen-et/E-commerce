@@ -144,7 +144,7 @@ a:link, a:visited, a:active {
   text-decoration:none;
 }
 
-a:hover{
+nav>div>a:hover, #options>ul>li>a:hover{
 	border-radius: 18px;
 	outline: none;
 	border: none;
