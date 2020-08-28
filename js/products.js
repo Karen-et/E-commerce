@@ -2,9 +2,9 @@ const ORDER_ASC_BY_PRICE = "MENOR PRECIO";
 const ORDER_DESC_BY_PRICE = "MAYOR PRECIO";
 const ORDER_BY_SOLD_COUNT = "RELEVANCIA";
 var currentProductsArray = [];
-var currentSortCriteria = undefined;
-var minCount = undefined;
-var maxCount = undefined;
+var currentSortCriteria;
+var minCount ;
+var maxCount ;
 
 function sortProducts(criteria, array){
     let result = [];
@@ -44,23 +44,26 @@ function showProductsList(){
             ((maxCount == undefined) || (maxCount != undefined && product.cost <= maxCount))){
 
             htmlContentToAppend += `
+            <a href="product-info.html" class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
                     <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
                 </div>
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">`+ product.name +`</h4>
+                        <h4 class="mb-1" .name>`+ product.name +`</h4>
                         <small class="text-muted">` + product.soldCount + ` vendidos</small>
                     </div>
-                    <p class="mb-1">` + product.description + `</p>
+                    <p class="mb-1" id="description">` + product.description + `</p>
                     <br>
                     <h5>` + product.cost + ` ` + product.currency + `.</h5>
                 </div>
             </div>
-            <hr>
+            </a>
         `
         }
+
+        console.log(typeof product.soldCount)
 
         document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
     }
@@ -79,16 +82,14 @@ function sortAndShowProducts(sortCriteria, productsArray){
     showProductsList();
 }
 
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
+//Trae el json con los productos y los despliega según el más vendido.
 document.addEventListener("DOMContentLoaded", e =>{
     getJSONData(PRODUCTS_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
-            sortAndShowProducts(ORDER_ASC_BY_PRICE, resultObj.data);
+            sortAndShowProducts(ORDER_BY_SOLD_COUNT, resultObj.data);
         }
     });
-    
+
     // El usuario selecciona ordenar por menor precio.
     document.getElementById("sortAsc").addEventListener("click", function(){
         sortAndShowProducts(ORDER_ASC_BY_PRICE);
@@ -118,18 +119,18 @@ document.addEventListener("DOMContentLoaded", e =>{
     document.getElementById("rangeFilterCount").addEventListener("click", function(){
         //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
         //de artículos vendidos.
-        minCount = document.getElementById("rangeFilterCountMin").value;
-        maxCount = document.getElementById("rangeFilterCountMax").value;
+        newMinCount = document.getElementById("rangeFilterCountMin").value;
+        newMaxCount = document.getElementById("rangeFilterCountMax").value;
 
-        if ((minCount != undefined) && (minCount != "") && minCount >= 0){
-            minCount = minCount;
+        if ((newMinCount != undefined) && (newMinCount != "") && newMinCount >= 0){
+            minCount = newMinCount;
         }
         else{
             minCount = undefined;
         }
 
-        if ((maxCount != undefined) && (maxCount != "") && maxCount >= 0){
-            maxCount = maxCount;
+        if ((newMaxCount != undefined) && (newMaxCount != "") && newMaxCount >= 0){
+            maxCount = newMaxCount;
         }
         else{
             maxCount = undefined;

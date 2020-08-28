@@ -33,18 +33,24 @@
         <div class="text-center p-4">
             <h2>Productos</h2>
             <br>
+                            <!-- Search form -->
+    <form class="form-inline d-flex justify-content-center md-form form-sm">
+      <input id="search" class="form-control form-control-sm mr-3 w-75" type="search" placeholder="Buscar"
+    aria-label="Search">
+    <i class="fas fa-search" aria-hidden="true"></i>
+    </form>
         </div>
         <div class="container">
             <div class="row">
                 <div class="col text-right">
                     <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
-                        <label class="btn btn-light active" id="sortAsc" >
+                        <label class="btn btn-light" id="sortAsc" >
                             <input type="radio" name="options" autocomplete="off" checked><i class="fas fa-sort-amount-down-alt"></i> MENOR PRECIO
                         </label>
                         <label class="btn btn-light" id="sortDesc" >
                             <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-up"></i> MAYOR PRECIO
                         </label>
-                        <label class="btn btn-light" id="sortByCount" >
+                        <label class="btn btn-light active" id="sortByCount" >
                             <input type="radio" name="options" autocomplete="off"><i class="fas fa-star"></i> RELEVANCIA
                         </label>
                     </div>
