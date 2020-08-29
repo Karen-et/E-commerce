@@ -51,10 +51,10 @@ function showProductsList(){
                 </div>
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1" .name>`+ product.name +`</h4>
+                        <h4 class="mb-1 name">`+ product.name +`</h4>
                         <small class="text-muted">` + product.soldCount + ` vendidos</small>
                     </div>
-                    <p class="mb-1" id="description">` + product.description + `</p>
+                    <p class="mb-1 desc">` + product.description + `</p>
                     <br>
                     <h5>` + product.cost + ` ` + product.currency + `.</h5>
                 </div>
@@ -62,8 +62,6 @@ function showProductsList(){
             </a>
         `
         }
-
-        console.log(typeof product.soldCount)
 
         document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
     }
@@ -139,3 +137,23 @@ document.addEventListener("DOMContentLoaded", e =>{
         showProductsList();
     });
 });
+
+var searchInput = document.getElementById("search");
+
+searchInput.addEventListener("input", event =>{
+    let search = searchInput.value.toUpperCase();
+    let container = document.getElementById("cat-list-container");
+    let articules = container.getElementsByTagName("a");
+
+    for(let articule of articules){
+        let name = articule.getElementsByClassName("name")[0].innerHTML;
+        let desc = articule.getElementsByClassName("desc")[0].innerHTML;
+
+        if(name.toUpperCase().includes(search) || desc.toUpperCase().includes(search)){
+            articule.style.display= "block";
+        } else{
+            articule.style.display= "none";
+        }
+    }
+
+})
