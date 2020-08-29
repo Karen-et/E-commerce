@@ -138,6 +138,8 @@ document.addEventListener("DOMContentLoaded", e =>{
     });
 });
 
+//Buscador
+
 var searchInput = document.getElementById("search");
 
 searchInput.addEventListener("input", event =>{
@@ -148,7 +150,8 @@ searchInput.addEventListener("input", event =>{
     for(let articule of articules){
         let name = articule.getElementsByClassName("name")[0].innerHTML;
         let desc = articule.getElementsByClassName("desc")[0].innerHTML;
-
+        
+        //Si el artículo no coincide con la busqueda lo oculta.
         if(name.toUpperCase().includes(search) || desc.toUpperCase().includes(search)){
             articule.style.display= "block";
         } else{
