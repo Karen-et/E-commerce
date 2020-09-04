@@ -1,0 +1,48 @@
+.row{
+    margin-right: -100px;
+    margin-left: -100px;
+}
+
+.col-3{
+    max-width: 36%;
+    align-items: center;
+    padding: 0%;
+}
+
+.mb-1{
+    text-align: justify;
+  }
+  
+  #main_img{
+    width: 100%;
+    padding-bottom: 5px;
+  }
+  
+  #images input{
+    width: calc(20% - 4px);
+    height: 40px;
+    margin: 2px;
+    display: inline;
+  }
+
+  .btn-light{
+      display: inline;
+      width: 150px;
+      margin: 15px;
+      margin-top: -15px;
+      color: rgb(255, 255, 255);
+      background-color: #328fcd;
+  }
+
+  .btn-light:hover{
+      background-color: #328fcd;
+  }
+
+  #relatedProducts{
+      display: inline;
+      width: 100%;
+  }
+
+  .card{
+      margin: 0px;
+  }
