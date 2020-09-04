@@ -32,7 +32,7 @@ var products;
 function showRelatedProducts(array){
    
     for(let related of array){
-    document.getElementById("relatedProducts").innerHTML+=`<div class="card" style="width: 18rem;">
+    document.getElementById("relatedProducts").innerHTML+=`<div class="card" style="width: 15rem;">
     <img class="card-img-top" src="`+products[related].imgSrc+`" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">`+products[related].name+`</h5>

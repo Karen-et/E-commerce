@@ -38,11 +38,7 @@
       background-color: #328fcd;
   }
 
-  #relatedProducts{
-      display: inline;
-      width: 100%;
-  }
-
   .card{
-      margin: 0px;
+     margin: 15px;
+
   }
