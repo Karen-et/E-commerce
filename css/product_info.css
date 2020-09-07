@@ -1,3 +1,4 @@
+
 .row{
     margin-right: -100px;
     margin-left: -100px;
@@ -40,5 +41,54 @@
 
   .card{
      margin: 15px;
-
   }
+
+  .row{
+    border: solid;
+    border: 1em;
+    margin-right: -50px;
+    margin-left: -100px;
+  }
+
+  #cost{
+    margin-top: -10px;
+  }
+
+  .subTitule{
+    margin-left: -100px;
+    margin-top: 20px;
+    margin-bottom: -10px;
+  }
+
+
+.rating{
+    transform: translate(+50%,-50%);
+    direction: rtl;
+    position: absolute;
+
+}
+
+.fa-star{
+  color: #CFD8DC !important;
+}
+
+.rating label{
+    color: #CFD8DC !important;
+    transition: 0.1s;
+}
+
+.rating input{
+    display: none;
+}
+
+.checked, .rating label:hover ~ label, .rating label:hover{
+    color: #FFA500 !important;
+}
+
+.rating input:checked, .rating input:checked ~ label{
+    color: #FFA500 !important;
+}
+
+.newComment{
+  border: 1px solid !important;
+}
