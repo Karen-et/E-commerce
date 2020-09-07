@@ -14,7 +14,6 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="css/styles.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/product_info.css">
 </head>
 
 <body>
@@ -38,20 +37,54 @@
        <div id="images" class="col-3"> </div>
         <div class="col">
            <div class="d-flex w-100 justify-content-between">
-               <h4 id="prodName" class="mb-1 name"></h4>
+               <h3 id="prodName" class="mb-1 name"></h3>
                <small id="sold" class="text-muted"></small>
           </div>
          <p id="desc" class="mb-1 desc"></p>
           <br>
           <div class="d-flex w-100">
-            <h5 id="cost"></h5>
+            <h4 id="cost"></h4>
             <button type="button" class="btn btn-light"> Agregar al <i class="fas fa-cart-plus"></i></button>
           </div>
           <small id="category" class="text-muted"></small>
           </div>
     </div>
-
+    <div class="subTitule">
+      <h5>Productos relacionados</h5>
+      <hr>
+    </div>
     <div id="relatedProducts" class="row" ></div>
+    <!-- Agregar nuevo comentario -->
+    <div class="container newComment subTitule">
+      <form method="POST">
+        <div class="d-flex w-100 justify-content-between">
+          <h4>Nuevo comentario</h4>
+          <h6 class="rating">
+              <input type="radio" id="star1"
+              name="star" value="1">
+              <label class="fa fa-star" for="star1"></label>
+        
+              <input type="radio" id="star2"
+              name="star" value="2">
+              <label class="fa fa-star" for="star2"></label>
+        
+              <input type="radio" id="star3"
+              name="star" value="3">
+              <label class="fa fa-star" for="star3"></label>
+        
+              <input type="radio" id="star4"
+              name="star" value="4">
+              <label class="fa fa-star" for="star4"></label>
+        
+              <input type="radio" id="star5"
+              name="star" value="5">
+              <label class="fa fa-star" for="star5"></label>
+          </h6>
+        </div>
+        <textarea name="" id="" cols="100" rows="3" placeholder="Danos tu opiníon..." required></textarea>
+      </form>
+    </div>
+    <div id="comments"></div>
   </main>
   <footer class="text-muted">
     <div class="container">
@@ -75,6 +108,8 @@
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
   <script src="js/showName.js"></script>
+  <link rel="stylesheet" href="css/product_info.css">
+  <!-- <script src="js/addNewComment.js"></script> -->
 </body>
 
 </html>
