@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", event =>{
             var stars = `<span class="fa fa-star checked"></span>`.repeat(comment.score);
             var restStars = `<span class="fa fa-star"></span>`.repeat(5-comment.score);
 
-            document.getElementById("comments").innerHTML+= `<div class="row">
+            document.getElementById("comments").innerHTML+= `<section class="row">
             <div>
             <h3><i class="fas fa-user"></i></h3s>
             </div>
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", event =>{
                     <small>${comment.dateTime}</small>
                 </div>
             </div>
-            </div>
+            </section>
             <hr>`;
 
             }

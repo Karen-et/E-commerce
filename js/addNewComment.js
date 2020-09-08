@@ -14,6 +14,7 @@ newComment.addEventListener("click", event=>{
     var starsBox = document.getElementsByName("star");
     for(let star of starsBox){
         if(star.checked == true){
+            console.log(star.value)
             var stars = `<span class="fa fa-star checked"></span>`.repeat(star.value);
             var restStars = `<span class="fa fa-star"></span>`.repeat(5-star.value); 
         }
