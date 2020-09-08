@@ -1,6 +1,6 @@
-var newComment = document.getElementById("commentBtn");
+var commentBtn = document.getElementById("commentBtn");
 
-newComment.addEventListener("click", event=>{
+commentBtn.addEventListener("click", event=>{
     //Obtener fecha y hora del comentario.
     var dateTime = new Date();
         var year = dateTime.getFullYear();
@@ -23,8 +23,10 @@ newComment.addEventListener("click", event=>{
     var user = localStorage.getItem("user");
     var opinion = document.getElementById("opinion").value;
 
+    //Ubicar el nuevo comentario sobre el último.
 
-    document.getElementById("comments").innerHTML+= `<div class="row">
+    var lastComment = document.getElementById("comments").firstChild;
+    var newComment =`<div class="row">
     <div>
     <h3><i class="fas fa-user"></i></h3s>
     </div>
@@ -42,6 +44,7 @@ newComment.addEventListener("click", event=>{
     </div>
     </div>
     <hr>`;
+    $( newComment ).insertBefore( lastComment )
 });
 
 
