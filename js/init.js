@@ -18,7 +18,7 @@ var hideSpinner = function(){
 async function getJSONData(url){
     var result = {};
     showSpinner();
-    return fetch(url)
+    return await fetch(url)
     .then(response => {
       if (response.ok) {
         return response.json();
