@@ -98,3 +98,7 @@
 .newComment{
   border: 1px solid !important;
 }
+
+textarea{
+  width: 100% !important;
+}
