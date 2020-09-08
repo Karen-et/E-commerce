@@ -14,6 +14,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/product_info.css">
 </head>
 
 <body>
@@ -55,35 +56,37 @@
     </div>
     <div id="relatedProducts" class="row" ></div>
     <!-- Agregar nuevo comentario -->
-    <div class="container newComment subTitule">
+    <div class="container subTitule newComment">
       <form method="POST">
         <div class="d-flex w-100 justify-content-between">
           <h4>Nuevo comentario</h4>
-          <h6 class="rating">
-              <input type="radio" id="star1"
+          <h5 class="rating">
+              <input type="radio" id="star1" class="star" required
               name="star" value="1">
               <label class="fa fa-star" for="star1"></label>
         
-              <input type="radio" id="star2"
+              <input type="radio" id="star2" class="star" required
               name="star" value="2">
               <label class="fa fa-star" for="star2"></label>
         
-              <input type="radio" id="star3"
+              <input type="radio" id="star3" class="star" required
               name="star" value="3">
               <label class="fa fa-star" for="star3"></label>
         
-              <input type="radio" id="star4"
+              <input type="radio" id="star4" class="star" required
               name="star" value="4">
               <label class="fa fa-star" for="star4"></label>
         
-              <input type="radio" id="star5"
+              <input type="radio" id="star5" class="star" required
               name="star" value="5">
               <label class="fa fa-star" for="star5"></label>
-          </h6>
+          </h5>
         </div>
-        <textarea name="" id="" cols="100" rows="3" placeholder="Danos tu opiníon..." required></textarea>
+        <textarea name="" id="opinion" cols="120" rows="3" placeholder="Danos tu opiníon..." required></textarea>
+        <button type="button" id="commentBtn" class="btn btn-danger">Enviar</button>
       </form>
     </div>
+    <hr>
     <div id="comments"></div>
   </main>
   <footer class="text-muted">
@@ -108,8 +111,7 @@
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
   <script src="js/showName.js"></script>
-  <link rel="stylesheet" href="css/product_info.css">
-  <!-- <script src="js/addNewComment.js"></script> -->
+  <script src="js/addNewComment.js"></script>
 </body>
 
 </html>

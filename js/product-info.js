@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", event=>{
         }
     })
     //Trae el JSON con la info y llama a las funciones que la muestran.
-    getJSONData(PRODUCT_INFO_URL).then( info =>{
+     getJSONData(PRODUCT_INFO_URL).then( info =>{
         if (info.status === "ok"){
             showProductInfo(info.data);
             showImages(info.data.images);

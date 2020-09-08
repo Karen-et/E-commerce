@@ -44,7 +44,6 @@
   }
 
   .row{
-    border: solid;
     border: 1em;
     margin-right: -50px;
     margin-left: -100px;
@@ -56,16 +55,23 @@
 
   .subTitule{
     margin-left: -100px;
+    margin-right: -100px;
     margin-top: 20px;
-    margin-bottom: -10px;
+    padding: 20px;
   }
+
+.newComment{
+  position: relative;
+  margin: 10px auto;
+}
 
 
 .rating{
     transform: translate(+50%,-50%);
     direction: rtl;
     position: absolute;
-
+    margin-left: 785px;
+    margin-top: 15px;
 }
 
 .fa-star{
