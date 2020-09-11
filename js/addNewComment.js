@@ -1,6 +1,8 @@
 var commentBtn = document.getElementById("commentBtn");
+var form = document.getElementById("form_rating");
 
-commentBtn.addEventListener("click", event=>{
+form.addEventListener("submit", event=>{
+    event.preventDefault();
     //Obtener fecha y hora del comentario.
     var dateTime = new Date();
         var year = dateTime.getFullYear();
@@ -44,7 +46,7 @@ commentBtn.addEventListener("click", event=>{
     </div>
     </div>
     <hr>`;
-    $( newComment ).insertBefore( lastComment )
+    $( newComment ).insertBefore( lastComment );
 });
 
 

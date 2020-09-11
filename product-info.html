@@ -7,7 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <title>eMercado - Todo lo que busques está aquí</title>
-
+  
+  <script src="js/init.js"></script>
+  <script src="js/product-info.js"></script>
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -57,7 +59,7 @@
     <div id="relatedProducts" class="row" ></div>
     <!-- Agregar nuevo comentario -->
     <div class="container subTitule newComment">
-      <form method="POST">
+      <form id="form_rating" method="POST">
         <div class="d-flex w-100 justify-content-between">
           <h4>Nuevo comentario</h4>
           <h5 class="rating">
@@ -83,7 +85,7 @@
           </h5>
         </div>
         <textarea name="" id="opinion" cols="120" rows="3" placeholder="Danos tu opiníon..." required></textarea>
-        <button type="button" id="commentBtn" class="btn btn-danger">Enviar</button>
+        <button type="submit" id="commentBtn" class="btn btn-danger">Enviar</button>
       </form>
     </div>
     <hr>
@@ -108,8 +110,6 @@
   </div>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/product-info.js"></script>
   <script src="js/showName.js"></script>
   <script src="js/addNewComment.js"></script>
 </body>

@@ -1,27 +1,24 @@
 
 // Validación del login
-var btn = document.getElementById("btn");
-var user = document.getElementById("user");
-var password = document.getElementById("password");
-
 var alert = document.getElementById("alert")
 
 
 function checkData(e){
-    if(user.value === "" || password.value === ""){
-        alert.innerHTML= `<strong>Usuario y/o contraseña incorrectos.</strong>`
-        e.preventDefault();
+    const btn = document.getElementById("btn");
+    const user = document.getElementById("user").value;
+    const pass = document.getElementById("password").value;
 
+    if(!user || !pass){
+        alert.innerHTML= `<strong>Usuario y/o contraseña incorrectos.</strong>`
     }else{
-    // Almacenar los datos en localStorage
-    localStorage.setItem("user", user.value);
-    window.location.href = "index.html";
-    e.preventDefault();
-	}
-	
+        e.preventDefault();
+        // Almacenar los datos en localStorage
+        localStorage.setItem("user", user);
+        window.location.href = "index.html";
+    }
 	
 }
 
-btn.addEventListener('click', checkData)
+btn.addEventListener('click', checkData);
 
 
