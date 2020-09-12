@@ -56,7 +56,7 @@ googleButton.addEventListener("click", (e) => {
   })
 });
 
-/Validación del Login con GitHub.
+//Validación del Login con GitHub.
 const GitHubButton = document.getElementById("GitHubLogin");
 
 GitHubButton.addEventListener("click", (e) => {
