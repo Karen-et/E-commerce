@@ -41,9 +41,9 @@ form.addEventListener('submit', event=>{
 });
 
 //Validación del Login con Google
-const googleButton = document.getElementById("googleLogin");
+const googleBtn = document.getElementById("googleLogin");
 
-googleButton.addEventListener("click", (e) => {
+googleBtn.addEventListener("click", (e) => {
   e.preventDefault();
   const provider = new firebase.auth.GoogleAuthProvider();
   auth.signInWithPopup(provider).then((result) => {
@@ -57,9 +57,9 @@ googleButton.addEventListener("click", (e) => {
 });
 
 //Validación del Login con GitHub.
-const GitHubButton = document.getElementById("GitHubLogin");
+const gitHubBtn = document.getElementById("GitHubLogin");
 
-GitHubButton.addEventListener("click", (e) => {
+gitHubBtn.addEventListener("click", (e) => {
   e.preventDefault();
   var provider = new firebase.auth.GithubAuthProvider();
   auth.signInWithPopup(provider).then((result) => {
