@@ -32,7 +32,7 @@ function checkData(){
     window.location.href = "index.html";     
     }
 	
-}
+};
 
 form.addEventListener('submit', event=>{
     event.preventDefault();
@@ -50,10 +50,10 @@ googleButton.addEventListener("click", event => {
     var googleUser = firebase.auth().currentUser.displayName;
     localStorage.setItem("user", googleUser)
     window.location.href = "index.html";
-    })
-  .catch(err => {
+    });
+    .catch(err => {
     console.log(err);
-  })
+  });
 });
 
 //Validación del Login con Facebook.
