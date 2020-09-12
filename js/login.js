@@ -64,7 +64,7 @@ faceButton.addEventListener("click", event => {
   const provider = new firebase.auth.FacebookAuthProvider();
   auth.signInWithPopup(provider).then((result) => {
     //Setear el nombre de usuario de Google como user.
-    var faceUser = result.user;
+    var faceUser = result.user.email;
     console.log(faceUser);
     localStorage.setItem("user", faceUser)
     window.location.href = "index.html";
