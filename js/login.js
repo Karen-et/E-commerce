@@ -56,4 +56,20 @@ googleButton.addEventListener("click", (e) => {
   })
 });
 
+//Validación del Login con Facebook
+const faceButton = document.getElementById("faceLogin");
+
+faceButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  const provider = new firebase.auth.FacebookAuthProvider();
+  auth.signInWithPopup(provider).then((result) => {
+    var faceUser = firebase.auth().currentUser.displayName;
+    localStorage.setItem("user", faceUser);
+    window.location.href = "index.html";
+    })
+  .catch(err => {
+    console.log(err);
+  })
+});
+
 
