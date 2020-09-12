@@ -47,7 +47,8 @@ googleBtn.addEventListener("click", (e) => {
   e.preventDefault();
   const provider = new firebase.auth.GoogleAuthProvider();
   auth.signInWithPopup(provider).then((result) => {
-    var googleUser = firebase.auth().currentUser.displayName;
+    var user = result.user;
+    var googleUser = user.displayName;
     localStorage.setItem("user", googleUser);
     window.location.href = "index.html";
     })
@@ -63,7 +64,8 @@ gitHubBtn.addEventListener("click", (e) => {
   e.preventDefault();
   var provider = new firebase.auth.GithubAuthProvider();
   auth.signInWithPopup(provider).then((result) => {
-    var gitUser = firebase.auth().currentUser.displayName;
+    var user = result.user;
+    var gitUser = user.displayName;
     localStorage.setItem("user", gitUser);
     window.location.href = "index.html";
     })
