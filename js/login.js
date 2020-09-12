@@ -39,7 +39,7 @@ form.addEventListener('submit', event=>{
     checkData();
 });
 
-//Validación del Login con Google
+//Validación del Login con Google.
 const googleButton = document.querySelector("#googleLogin");
 
 googleButton.addEventListener("click", event => {
@@ -49,6 +49,23 @@ googleButton.addEventListener("click", event => {
     //Setear el nombre de usuario de Google como user.
     var googleUser = firebase.auth().currentUser.displayName;
     localStorage.setItem("user", googleUser)
+    window.location.href = "index.html";
+    })
+  .catch(err => {
+    console.log(err);
+  })
+});
+
+//Validación del Login con Facebook.
+const faceBtn = document.querySelector("#faceLogin");
+
+faceBtn.addEventListener("click", event => {
+  event.preventDefault();
+  const provider = new firebase.auth.FacebookAuthProvider();
+  auth.signInWithPopup(provider).then((result) => {
+    //Setear el nombre de usuario de Facebook como user.
+    var faceUser = firebase.auth().currentUser.displayName;
+    localStorage.setItem("user", faceUser)
     window.location.href = "index.html";
     })
   .catch(err => {
