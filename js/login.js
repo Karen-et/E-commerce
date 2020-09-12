@@ -15,13 +15,13 @@ var firebaseConfig = {
 
 
 // Validación del login con usuario
-const alert = document.getElementById("alert")
-const form = document.getElementById("form_login");
+const alert = document.querySelector("#alert");
+const form = document.querySelector("#form_login");
 
 
 function checkData(){
-    var user = document.getElementById("user").value;
-    var password = document.getElementById("password").value;
+    var user = document.querySelector("#user").value;
+    var password = document.querySelector("#password").value;
 
     if(!user || !password){
         alert.innerHTML= `<strong>Usuario y/o contraseña incorrectos.</strong>`;
@@ -48,7 +48,8 @@ googleButton.addEventListener("click", (e) => {
   auth.signInWithPopup(provider).then((result) => {
     console.log(result);
     console.log("google sign in");
-  })
+    window.location.href = "index.html";
+    })
   .catch(err => {
     console.log(err);
   })

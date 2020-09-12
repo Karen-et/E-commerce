@@ -15,7 +15,7 @@ function showImagesGallery(array){
         </div>
         `
 
-        document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
+        document.querySelector("#productImagesGallery").innerHTML = htmlContentToAppend;
     }
 }
 
@@ -28,10 +28,10 @@ document.addEventListener("DOMContentLoaded", function(e){
         {
             category = resultObj.data;
 
-            let categoryNameHTML  = document.getElementById("categoryName");
-            let categoryDescriptionHTML = document.getElementById("categoryDescription");
-            let productCountHTML = document.getElementById("productCount");
-            let productCriteriaHTML = document.getElementById("productCriteria");
+            let categoryNameHTML  = document.querySelector("#categoryName");
+            let categoryDescriptionHTML = document.querySelector("#categoryDescription");
+            let productCountHTML = document.querySelector("#productCount");
+            let productCriteriaHTML = document.querySelector("#productCriteria");
         
             categoryNameHTML.innerHTML = category.name;
             categoryDescriptionHTML.innerHTML = category.description;

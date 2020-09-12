@@ -1,5 +1,5 @@
 function showImages(array){
-    let images = document.getElementById("images");
+    let images = document.querySelector("#images");
     let main_img = array[0];
 
     //Agregar imagenes
@@ -11,7 +11,7 @@ function showImages(array){
     var slider =document.getElementsByClassName("img_input");
     for(let input of slider){
         input.addEventListener("click", event=>{
-            document.getElementById("main_img").src= input.src;
+            document.querySelector("#main_img").src= input.src;
         });
     }
 
@@ -20,11 +20,11 @@ function showImages(array){
 //Mostrar la info del producto 
 function showProductInfo(product){
     
-var name = document.getElementById("prodName").innerHTML= `${product.name}` ;
-var desc = document.getElementById("desc").innerHTML= `${product.description}` ;
-var cost = document.getElementById("cost").innerHTML= `${product.cost} ${product.currency}` ;
-var sold = document.getElementById("sold").innerHTML=`${product.soldCount} vendidos`;
-var category = document.getElementById("category").innerHTML=`Categoría: <a href="products.html">${product.category}</a>`;
+var name = document.querySelector("#prodName").innerHTML= `${product.name}` ;
+var desc = document.querySelector("#desc").innerHTML= `${product.description}` ;
+var cost = document.querySelector("#cost").innerHTML= `${product.cost} ${product.currency}` ;
+var sold = document.querySelector("#sold").innerHTML=`${product.soldCount} vendidos`;
+var category = document.querySelector("#category").innerHTML=`Categoría: <a href="products.html">${product.category}</a>`;
 };
 
 //Mostrar artículos relacionados
@@ -32,7 +32,7 @@ var products;
 function showRelatedProducts(array){
    
     for(let related of array){
-        document.getElementById("relatedProducts").innerHTML+=`<div class="card" style="width: 15rem;">
+        document.querySelector("#relatedProducts").innerHTML+=`<div class="card" style="width: 15rem;">
         <img class="card-img-top" src="${products[related].imgSrc}">
         <div class="card-body">
         <h5 class="card-title">${products[related].name}</h5>
@@ -52,7 +52,7 @@ function showComments(array){
         var stars = `<span class="fa fa-star checked"></span>`.repeat(comment.score);
         var restStars = `<span class="fa fa-star"></span>`.repeat(5-comment.score);
 
-        document.getElementById("comments").innerHTML+= `<section class="row">
+        document.querySelector("#comments").innerHTML+= `<section class="row">
         <div>
         <h3><i class="fas fa-user"></i></h3s>
         </div>

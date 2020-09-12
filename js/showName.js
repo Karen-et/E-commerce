@@ -2,7 +2,7 @@
   // Mostrar nombre
   function showName(){
     var user = localStorage.getItem("user");
-    var name = document.getElementById("name");
+    var name = document.querySelector("#name");
     
      name.innerHTML = user + " &#x2630";
   }
@@ -17,7 +17,7 @@ $('#options').hover(function(){
 
 // Cerrar Sesión
 
-var logOutBtn = document.getElementById("logOut");
+var logOutBtn = document.querySelector("#logOut");
 
 function logOut(){
   localStorage.removeItem("user");

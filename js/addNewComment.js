@@ -1,5 +1,5 @@
-var commentBtn = document.getElementById("commentBtn");
-var form = document.getElementById("form_rating");
+var commentBtn = document.querySelector("#commentBtn");
+var form = document.querySelector("#form_rating");
 
 form.addEventListener("submit", event=>{
     event.preventDefault();
@@ -23,11 +23,11 @@ form.addEventListener("submit", event=>{
 
     //Capturar nombre y opinion del usuario.
     var user = localStorage.getItem("user");
-    var opinion = document.getElementById("opinion").value;
+    var opinion = document.querySelector("#opinion").value;
 
     //Ubicar el nuevo comentario sobre el último.
 
-    var lastComment = document.getElementById("comments").firstChild;
+    var lastComment = document.querySelector("#comments").firstChild;
     var newComment =`<div class="row">
     <div>
     <h3><i class="fas fa-user"></i></h3s>

@@ -63,7 +63,7 @@ function showProductsList(){
         `
         }
 
-        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+        document.querySelector("#cat-list-container").innerHTML = htmlContentToAppend;
     }
 }
 
@@ -89,24 +89,24 @@ document.addEventListener("DOMContentLoaded", e =>{
     });
 
     // El usuario selecciona ordenar por menor precio.
-    document.getElementById("sortAsc").addEventListener("click", function(){
+    document.querySelector("#sortAsc").addEventListener("click", function(){
         sortAndShowProducts(ORDER_ASC_BY_PRICE);
     });
 
     // El usuario selecciona ordenar por mayor precio.
-    document.getElementById("sortDesc").addEventListener("click", function(){
+    document.querySelector("#sortDesc").addEventListener("click", function(){
         sortAndShowProducts(ORDER_DESC_BY_PRICE);
     });
 
     // El usuario selecciona ordenar por relevancia.
-    document.getElementById("sortByCount").addEventListener("click", function(){
+    document.querySelector("#sortByCount").addEventListener("click", function(){
         sortAndShowProducts(ORDER_BY_SOLD_COUNT);
     });
 
     // Limpia el filtro de precios
-    document.getElementById("clearRangeFilter").addEventListener("click", function(){
-        document.getElementById("rangeFilterCountMin").value = "";
-        document.getElementById("rangeFilterCountMax").value = "";
+    document.querySelector("#clearRangeFilter").addEventListener("click", function(){
+        document.querySelector("#rangeFilterCountMin").value = "";
+        document.querySelector("#rangeFilterCountMax").value = "";
 
         minCount = undefined;
         maxCount = undefined;
@@ -114,11 +114,11 @@ document.addEventListener("DOMContentLoaded", e =>{
         showProductsList();
     });
 
-    document.getElementById("rangeFilterCount").addEventListener("click", function(){
+    document.querySelector("#rangeFilterCount").addEventListener("click", function(){
         //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
         //de artículos vendidos.
-        newMinCount = document.getElementById("rangeFilterCountMin").value;
-        newMaxCount = document.getElementById("rangeFilterCountMax").value;
+        newMinCount = document.querySelector("#rangeFilterCountMin").value;
+        newMaxCount = document.querySelector("#rangeFilterCountMax").value;
 
         if ((newMinCount != undefined) && (newMinCount != "") && newMinCount >= 0){
             minCount = newMinCount;
@@ -140,11 +140,11 @@ document.addEventListener("DOMContentLoaded", e =>{
 
 //Buscador
 
-var searchInput = document.getElementById("search");
+var searchInput = document.querySelector("#search");
 
 searchInput.addEventListener("input", event =>{
     let search = searchInput.value.toUpperCase();
-    let container = document.getElementById("cat-list-container");
+    let container = document.querySelector("#cat-list-container");
     let articules = container.getElementsByTagName("a");
 
     for(let articule of articules){

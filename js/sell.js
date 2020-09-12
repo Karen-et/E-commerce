@@ -12,9 +12,9 @@ let ERROR_MSG = "Ha habido un error :(, verifica qué pasó.";
 
 //Función que se utiliza para actualizar los costos de publicación
 function updateTotalCosts(){
-    let unitProductCostHTML = document.getElementById("productCostText");
-    let comissionCostHTML = document.getElementById("comissionText");
-    let totalCostHTML = document.getElementById("totalCostText");
+    let unitProductCostHTML = document.querySelector("#productCostText");
+    let comissionCostHTML = document.querySelector("#comissionText");
+    let totalCostHTML = document.querySelector("#totalCostText");
 
     let unitCostToShow = MONEY_SYMBOL + productCost;
     let comissionToShow = Math.round((comissionPercentage * 100)) + PERCENTAGE_SYMBOL;
@@ -29,32 +29,32 @@ function updateTotalCosts(){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-    document.getElementById("productCountInput").addEventListener("change", function(){
+    document.querySelector("#productCountInput").addEventListener("change", function(){
         productCount = this.value;
         updateTotalCosts();
     });
 
-    document.getElementById("productCostInput").addEventListener("change", function(){
+    document.querySelector("#productCostInput").addEventListener("change", function(){
         productCost = this.value;
         updateTotalCosts();
     });
 
-    document.getElementById("goldradio").addEventListener("change", function(){
+    document.querySelector("#goldradio").addEventListener("change", function(){
         comissionPercentage = 0.13;
         updateTotalCosts();
     });
     
-    document.getElementById("premiumradio").addEventListener("change", function(){
+    document.querySelector("#premiumradio").addEventListener("change", function(){
         comissionPercentage = 0.07;
         updateTotalCosts();
     });
 
-    document.getElementById("standardradio").addEventListener("change", function(){
+    document.querySelector("#standardradio").addEventListener("change", function(){
         comissionPercentage = 0.03;
         updateTotalCosts();
     });
 
-    document.getElementById("productCurrency").addEventListener("change", function(){
+    document.querySelector("#productCurrency").addEventListener("change", function(){
         if (this.value == DOLLAR_CURRENCY)
         {
             MONEY_SYMBOL = DOLLAR_SYMBOL;
@@ -76,15 +76,15 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 
     //Se obtiene el formulario de publicación de producto
-    var sellForm = document.getElementById("sell-info");
+    var sellForm = document.querySelector("#sell-info");
 
     //Se agrega una escucha en el evento 'submit' que será
     //lanzado por el formulario cuando se seleccione 'Vender'.
     sellForm.addEventListener("submit", function(e){
 
-        let productNameInput = document.getElementById("productName");
-        let productCategory = document.getElementById("productCategory");
-        let productCost = document.getElementById("productCostInput");
+        let productNameInput = document.querySelector("#productName");
+        let productCategory = document.querySelector("#productCategory");
+        let productCost = document.querySelector("#productCostInput");
         let infoMissing = false;
 
         //Quito las clases que marcan como inválidos
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             //la solicitud para crear la publicación.
 
             getJSONData(PUBLISH_PRODUCT_URL).then(function(resultObj){
-                let msgToShowHTML = document.getElementById("resultSpan");
+                let msgToShowHTML = document.querySelector("#resultSpan");
                 let msgToShow = "";
     
                 //Si la publicación fue exitosa, devolverá mensaje de éxito,
@@ -129,16 +129,16 @@ document.addEventListener("DOMContentLoaded", function(e){
                 if (resultObj.status === 'ok')
                 {
                     msgToShow = resultObj.data.msg;
-                    document.getElementById("alertResult").classList.add('alert-success');
+                    document.querySelector("#alertResult").classList.add('alert-success');
                 }
                 else if (resultObj.status === 'error')
                 {
                     msgToShow = ERROR_MSG;
-                    document.getElementById("alertResult").classList.add('alert-danger');
+                    document.querySelector("#alertResult").classList.add('alert-danger');
                 }
     
                 msgToShowHTML.innerHTML = msgToShow;
-                document.getElementById("alertResult").classList.add("show");
+                document.querySelector("#alertResult").classList.add("show");
             });
         }
 
