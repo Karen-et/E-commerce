@@ -57,14 +57,15 @@ googleButton.addEventListener("click", event => {
 });
 
 //Validación del Login con Facebook.
-const faceBtn = document.querySelector("#faceLogin");
+const faceButton = document.querySelector("#faceLogin");
 
-faceBtn.addEventListener("click", event => {
+faceButton.addEventListener("click", event => {
   event.preventDefault();
   const provider = new firebase.auth.FacebookAuthProvider();
   auth.signInWithPopup(provider).then((result) => {
-    //Setear el nombre de usuario de Facebook como user.
-    var faceUser = firebase.auth().currentUser.displayName;
+    //Setear el nombre de usuario de Google como user.
+    var faceUser = result.user;
+    console.log(faceUser);
     localStorage.setItem("user", faceUser)
     window.location.href = "index.html";
     })
