@@ -61,11 +61,14 @@ const faceButton = document.getElementById("faceLogin");
 
 faceButton.addEventListener("click", (e) => {
   e.preventDefault();
-  const provider = new firebase.auth.FacebookAuthProvider();
+  var provider = new firebase.auth.FacebookAuthProvider();
   auth.signInWithPopup(provider).then((result) => {
-    var faceUser = firebase.auth().currentUser.displayName;
-    localStorage.setItem("user", faceUser);
-    window.location.href = "index.html";
+    var token = result.credential.accessToken;
+    var user = result.user;
+    console.log(user);
+    // var faceUser = firebase.auth().currentUser.displayName;
+    // localStorage.setItem("user", faceUser);
+    // window.location.href = "index.html";
     })
   .catch(err => {
     console.log(err);
