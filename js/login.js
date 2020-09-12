@@ -56,20 +56,16 @@ googleButton.addEventListener("click", (e) => {
   })
 });
 
-//Validación del Login con Facebook
-const faceButton = document.getElementById("faceLogin");
+/Validación del Login con GitHub.
+const GitHubButton = document.getElementById("GitHubLogin");
 
-faceButton.addEventListener("click", (e) => {
-   console.log("llegué aquí");
+GitHubButton.addEventListener("click", (e) => {
   e.preventDefault();
-  let provider = new firebase.auth.FacebookAuthProvider();
+  var provider = new firebase.auth.GithubAuthProvider();
   auth.signInWithPopup(provider).then((result) => {
-    var token = result.credential.accessToken;
-    var user = result.user;
-    console.log(user);
-    // var faceUser = firebase.auth().currentUser.displayName;
-    // localStorage.setItem("user", faceUser);
-    // window.location.href = "index.html";
+    var gitUser = firebase.auth().currentUser.displayName;
+    localStorage.setItem("user", gitUser);
+    window.location.href = "index.html";
     })
   .catch(err => {
     console.log(err);
