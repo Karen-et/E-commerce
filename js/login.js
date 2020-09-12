@@ -60,8 +60,9 @@ googleButton.addEventListener("click", (e) => {
 const faceButton = document.getElementById("faceLogin");
 
 faceButton.addEventListener("click", (e) => {
+   console.log("llegué aquí");
   e.preventDefault();
-  var provider = new firebase.auth.FacebookAuthProvider();
+  let provider = new firebase.auth.FacebookAuthProvider();
   auth.signInWithPopup(provider).then((result) => {
     var token = result.credential.accessToken;
     var user = result.user;
