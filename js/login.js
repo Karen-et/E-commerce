@@ -46,8 +46,6 @@ googleButton.addEventListener("click", (e) => {
   e.preventDefault();
   const provider = new firebase.auth.GoogleAuthProvider();
   auth.signInWithPopup(provider).then((result) => {
-    console.log(result);
-    console.log("google sign in");
     window.location.href = "index.html";
     })
   .catch(err => {
