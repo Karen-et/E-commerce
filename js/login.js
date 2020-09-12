@@ -68,6 +68,7 @@ faceButton.addEventListener("click", event => {
     // The signed-in user info.
     var faceUser = result.user;
     localStorage("user", faceUser);
+    window.location.href="index.html";
     // ...
   }).catch(function(error) {
     // Handle Errors here.
