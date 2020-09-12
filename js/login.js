@@ -57,21 +57,21 @@ googleButton.addEventListener("click", event => {
 });
 
 //Validación del Login con Facebook.
-const faceButton = document.querySelector("#faceLogin");
+// const faceButton = document.querySelector("#faceLogin");
 
-faceButton.addEventListener("click", event => {
-  event.preventDefault();
-  const provider = new firebase.auth.FacebookAuthProvider();
-  auth.signInWithPopup(provider).then((result) => {
-    //Setear el nombre de usuario de Google como user.
-    var faceUser = result.user.email;
-    console.log(faceUser);
-    localStorage.setItem("user", faceUser)
-    window.location.href = "index.html";
-    })
-  .catch(err => {
-    console.log(err);
-  })
-});
+// faceButton.addEventListener("click", event => {
+//   event.preventDefault();
+//   const provider = new firebase.auth.FacebookAuthProvider();
+//   auth.signInWithPopup(provider).then((result) => {
+//     //Setear el nombre de usuario de Google como user.
+//     var faceUser = result.user.email;
+//     console.log(faceUser);
+//     localStorage.setItem("user", faceUser)
+//     window.location.href = "index.html";
+//     })
+//   .catch(err => {
+//     console.log(err);
+//   })
+// });
 
 
