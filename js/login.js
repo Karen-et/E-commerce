@@ -15,13 +15,14 @@ var firebaseConfig = {
 
 
 // Validación del login con usuario
-const alert = document.querySelector("#alert");
-const form = document.querySelector("#form_login");
+const alert = document.getElementById("alert");
+const form = document.getElementById("form_login");
 
 
 function checkData(){
-    var user = document.querySelector("#user").value;
-    var password = document.querySelector("#password").value;
+    var user = document.getElementById("user").value;
+
+    var password = document.getElementById("password").value;
 
     if(!user || !password){
         alert.innerHTML= `<strong>Usuario y/o contraseña incorrectos.</strong>`;
@@ -32,46 +33,27 @@ function checkData(){
     window.location.href = "index.html";     
     }
 	
-};
+}
 
 form.addEventListener('submit', event=>{
     event.preventDefault();
     checkData();
 });
 
-//Validación del Login con Google.
-const googleButton = document.querySelector("#googleLogin");
+//Validación del Login con Google
+const googleButton = document.getElementById("googleLogin");
 
-googleButton.addEventListener("click", event => {
-  event.preventDefault();
+googleButton.addEventListener("click", (e) => {
+  e.preventDefault();
   const provider = new firebase.auth.GoogleAuthProvider();
   auth.signInWithPopup(provider).then((result) => {
-    //Setear el nombre de usuario de Google como user.
     var googleUser = firebase.auth().currentUser.displayName;
-    localStorage.setItem("user", googleUser)
+    localStorage.setItem("user", googleUser);
     window.location.href = "index.html";
-    });
-    .catch(err => {
+    })
+  .catch(err => {
     console.log(err);
-  });
+  })
 });
-
-//Validación del Login con Facebook.
-// const faceButton = document.querySelector("#faceLogin");
-
-// faceButton.addEventListener("click", event => {
-//   event.preventDefault();
-//   const provider = new firebase.auth.FacebookAuthProvider();
-//   auth.signInWithPopup(provider).then((result) => {
-//     //Setear el nombre de usuario de Google como user.
-//     var faceUser = result.user.email;
-//     console.log(faceUser);
-//     localStorage.setItem("user", faceUser)
-//     window.location.href = "index.html";
-//     })
-//   .catch(err => {
-//     console.log(err);
-//   })
-// });
 
 
