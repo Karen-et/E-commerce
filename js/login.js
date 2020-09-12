@@ -42,12 +42,12 @@ form.addEventListener('submit', event=>{
 //Validación del Login con Google
 const googleButton = document.querySelector("#googleLogin");
 
-googleButton.addEventListener("click", (e) => {
-  e.preventDefault();
+googleButton.addEventListener("click", event => {
+  event.preventDefault();
   const provider = new firebase.auth.GoogleAuthProvider();
   auth.signInWithPopup(provider).then((result) => {
+    //Setear el nombre de usuario de Google como user.
     var googleUser = firebase.auth().currentUser.displayName;
-    console.log(googleUser);
     localStorage.setItem("user", googleUser)
     window.location.href = "index.html";
     })
