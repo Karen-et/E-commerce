@@ -168,7 +168,7 @@ form{
 	margin: auto;
 	margin-bottom: 2em;
 	text-align: center;
-	padding-right: 1em;
+	margin-right: 1em;
 }
 
 .btn:hover, .btn-google:hover{
