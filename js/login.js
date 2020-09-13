@@ -64,10 +64,13 @@ googleBtn.addEventListener("click", (e) => {
    e.preventDefault();
    const provider = new firebase.auth.GithubAuthProvider();
    auth.signInWithPopup(provider).then((result) => {
-     var user = result.user;
-     var gitHubUser = user.displayName;
-     localStorage.setItem("user", gitHubUser);
-     window.location.href = "index.html";
+     var user = auth.currentUser;
+     if(user){
+      var gitHubUser = user.email;
+      localStorage.setItem("user", gitHubUser);
+      window.location.href = "index.html";
+     }
+     
      })
    .catch(err => {
      console.log(err);
