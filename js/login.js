@@ -48,7 +48,6 @@ googleBtn.addEventListener("click", (e) => {
   const provider = new firebase.auth.GoogleAuthProvider();
   auth.signInWithPopup(provider).then((result) => {
     var user = result.user;
-    console.log(user)
     var googleUser = user.displayName;
     localStorage.setItem("user", googleUser);
     window.location.href = "index.html";
@@ -63,11 +62,10 @@ googleBtn.addEventListener("click", (e) => {
 
  gitHubBtn.addEventListener("click", (e) => {
    e.preventDefault();
-   var provider = new firebase.auth.GithubAuthProvider();
+   const provider = new firebase.auth.GithubAuthProvider();
    auth.signInWithPopup(provider).then((result) => {
      var user = result.user;
-     console.log(user)
-     var gitHubUser = user.email;
+     var gitHubUser = user.displayName;
      localStorage.setItem("user", gitHubUser);
      window.location.href = "index.html";
      })
@@ -81,10 +79,9 @@ googleBtn.addEventListener("click", (e) => {
 
  facebookBtn.addEventListener("click", (e) => {
    e.preventDefault();
-   var provider = new firebase.auth.FacebookAuthProvider();
+   const provider = new firebase.auth.FacebookAuthProvider();
    auth.signInWithPopup(provider).then((result) => {
      var user = result.user;
-     console.log(user)
      var facebookUser = user.displayName;
      localStorage.setItem("user", facebookUser);
      window.location.href = "index.html";
