@@ -18,10 +18,8 @@ var firebaseConfig = {
 const alert = document.getElementById("alert");
 const form = document.getElementById("form_login");
 
-
 function checkData(){
     var user = document.getElementById("user").value;
-
     var password = document.getElementById("password").value;
 
     if(!user || !password){
@@ -35,7 +33,7 @@ function checkData(){
 	
 }
 
-form.addEventListener('submit', event=>{
+form.addEventListener('submit', event =>{
     event.preventDefault();
     checkData();
 });
@@ -43,10 +41,11 @@ form.addEventListener('submit', event=>{
 //Validación del Login con Google
 const googleBtn = document.getElementById("googleLogin");
 
-googleBtn.addEventListener("click", (e) => {
-  e.preventDefault();
+googleBtn.addEventListener("click", event => {
+  event.preventDefault();
   const provider = new firebase.auth.GoogleAuthProvider();
   auth.signInWithPopup(provider).then((result) => {
+    //Si el inicio de sesión es exitoso se setea el nombre de usuario de Google.
     var user = result.user;
     var googleUser = user.displayName;
     localStorage.setItem("user", googleUser);
@@ -57,39 +56,41 @@ googleBtn.addEventListener("click", (e) => {
   })
 });
 
-//Validación del Login con GitHub.
- const gitHubBtn = document.getElementById("gitHubLogin");
 
- gitHubBtn.addEventListener("click", (e) => {
-   e.preventDefault();
-   const provider = new firebase.auth.GithubAuthProvider();
-   auth.signInWithPopup(provider).then((result) => {
-      auth.onAuthStateChanged( user => {
-        if (user) {
-       var gitHubUser = user.email;
-      localStorage.setItem("user", gitHubUser);
-      window.location.href = "index.html";        } 
-     })
-   .catch(err => {
-     console.log(err);
-   })
- });
+//Validación del Login con GitHub
+const gitHubBtn = document.getElementById("gitHubLogin");
 
- //Validación del Login con Facebook.
- const facebookBtn = document.getElementById("facebookLogin");
+gitHubBtn.addEventListener("click", event => {
+  event.preventDefault();
+  const provider = new firebase.auth.GitHubAuthProvider();
+  auth.signInWithPopup(provider).then((result) => {
+    //Si el inicio de sesión es exitoso se setea el nombre de usuario de GitHub.
+    var user = result.user;
+    var gitHubUser = user.displayName;
+    localStorage.setItem("user", gitHubUser);
+    window.location.href = "index.html";
+    })
+  .catch(err => {
+    console.log(err);
+  })
+});
 
- facebookBtn.addEventListener("click", (e) => {
-   e.preventDefault();
-   const provider = new firebase.auth.FacebookAuthProvider();
-   auth.signInWithPopup(provider).then((result) => {
-     var user = result.user;
-     var facebookUser = user.displayName;
-     localStorage.setItem("user", facebookUser);
-     window.location.href = "index.html";
-     })
-   .catch(err => {
-     console.log(err);
-   })
- });
+//Validación del Login con Facebook
+const facebookBtn = document.getElementById("facebookLogin");
+
+facebookBtn.addEventListener("click", event => {
+  event.preventDefault();
+  const provider = new firebase.auth.FacebookAuthProvider();
+  auth.signInWithPopup(provider).then((result) => {
+    //Si el inicio de sesión es exitoso se setea el nombre de usuario de Facebook.
+    var user = result.user;
+    var facebookUser = user.displayName;
+    localStorage.setItem("user", facebookUser);
+    window.location.href = "index.html";
+    })
+  .catch(err => {
+    console.log(err);
+  })
+});
 
 
