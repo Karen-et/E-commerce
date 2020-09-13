@@ -58,15 +58,32 @@ googleBtn.addEventListener("click", (e) => {
 });
 
 //Validación del Login con GitHub.
- const gitHubBtn = document.getElementById("GitHubLogin");
+ const gitHubBtn = document.getElementById("gitHubLogin");
 
  gitHubBtn.addEventListener("click", (e) => {
    e.preventDefault();
    var provider = new firebase.auth.GithubAuthProvider();
    auth.signInWithPopup(provider).then((result) => {
      var user = result.user;
-     var gitUser = user.displayName;
-     localStorage.setItem("user", gitUser);
+     var gitHubUser = user.displayName;
+     localStorage.setItem("user", gitHubUser);
+     window.location.href = "index.html";
+     })
+   .catch(err => {
+     console.log(err);
+   })
+ });
+
+ //Validación del Login con Facebook.
+ const facebookBtn = document.getElementById("facebookLogin");
+
+ facebookBtn.addEventListener("click", (e) => {
+   e.preventDefault();
+   var provider = new firebase.auth.FacebookAuthProvider();
+   auth.signInWithPopup(provider).then((result) => {
+     var user = result.user;
+     var facebookUser = user.displayName;
+     localStorage.setItem("user", facebookUser);
      window.location.href = "index.html";
      })
    .catch(err => {
