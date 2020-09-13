@@ -48,6 +48,7 @@ googleBtn.addEventListener("click", (e) => {
   const provider = new firebase.auth.GoogleAuthProvider();
   auth.signInWithPopup(provider).then((result) => {
     var user = result.user;
+    console.log(user)
     var googleUser = user.displayName;
     localStorage.setItem("user", googleUser);
     window.location.href = "index.html";
@@ -83,6 +84,7 @@ googleBtn.addEventListener("click", (e) => {
    var provider = new firebase.auth.FacebookAuthProvider();
    auth.signInWithPopup(provider).then((result) => {
      var user = result.user;
+     console.log(user)
      var facebookUser = user.displayName;
      localStorage.setItem("user", facebookUser);
      window.location.href = "index.html";
