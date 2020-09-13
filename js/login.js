@@ -65,6 +65,7 @@ googleBtn.addEventListener("click", (e) => {
    var provider = new firebase.auth.GithubAuthProvider();
    auth.signInWithPopup(provider).then((result) => {
      var user = result.user;
+     console.log(user)
      var gitHubUser = user.displayName;
      localStorage.setItem("user", gitHubUser);
      window.location.href = "index.html";
