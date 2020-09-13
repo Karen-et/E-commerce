@@ -58,20 +58,20 @@ googleBtn.addEventListener("click", (e) => {
 });
 
 //Validación del Login con GitHub.
-const gitHubBtn = document.getElementById("GitHubLogin");
+ const gitHubBtn = document.getElementById("GitHubLogin");
 
-gitHubBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  var provider = new firebase.auth.GithubAuthProvider();
-  auth.signInWithPopup(provider).then((result) => {
-    var user = result.user;
-    var gitUser = user.displayName;
-    localStorage.setItem("user", gitUser);
-    window.location.href = "index.html";
-    })
-  .catch(err => {
-    console.log(err);
-  })
-});
+ gitHubBtn.addEventListener("click", (e) => {
+   e.preventDefault();
+   var provider = new firebase.auth.GithubAuthProvider();
+   auth.signInWithPopup(provider).then((result) => {
+     var user = result.user;
+     var gitUser = user.displayName;
+     localStorage.setItem("user", gitUser);
+     window.location.href = "index.html";
+     })
+   .catch(err => {
+     console.log(err);
+   })
+ });
 
 

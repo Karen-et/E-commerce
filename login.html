@@ -11,7 +11,7 @@
   <!-- <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/"> -->
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <!-- Bootstrap core CSS -->
-  <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
   <!-- Main css -->
   <link rel="stylesheet" href="css/login.css">
 </head>
@@ -25,8 +25,8 @@
 		</div>
 		<div class="login-content">
 			<div>
-				<button type="button" class="btn btn-info btn-block" id="googleLogin">Google</button>
-				<button type="button" class="btn btn-info btn-block" id="GitHubLogin">Git-Hub</button>
+				
+				<!-- <button type="button" class="btn btn-info btn-block" id="GitHubLogin">Git-Hub</button> -->
 			</div>
 			<form method="POST" id="form_login">
 				<div id="login">
@@ -51,9 +51,12 @@
             	   </div>
             	</div>
               <div id="alert"></div>
-            	<input id="btn" type="submit" class="btn" value="Ingresar">
-            </form>
-        </div>
+				<input id="btn" type="submit" class="btn" value="Ingresar">
+				<input class="btn-google" type="button" role="button" id="googleLogin" value="Ingresar con Google">
+				<input class="btn-google" type="button" role="button" id="GitHubLogin" value="Ingresar con GitHub">
+			</form>
+		</div>
+		
     </div>
 
 <!-- SDK FIREBASE -->

@@ -153,11 +153,9 @@ a{
 	transition: .3s;
 }
 
-a:hover{
-	color: #4D3F92;
-}
 
-.btn{
+
+.btn, .btn-google{
 	display: block;
 	width: 100%;
 	height: 50px;
@@ -174,7 +172,19 @@ a:hover{
 	cursor: pointer;
 	transition: .5s;
 }
-.btn:hover{
+
+.btn-google{
+	width: 60%;
+	height: 30px;
+	font-size: 0.7rem;
+	background-image: linear-gradient(to right, #1d8f90, #13c2eb, #79ddf5);
+	margin: auto;
+	margin-bottom: 2em;
+	text-align: center;
+	color: #fff;
+}
+
+.btn:hover, .btn-google:hover{
 	background-position: right;
 }
 
