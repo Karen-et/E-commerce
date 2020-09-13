@@ -66,7 +66,7 @@ googleBtn.addEventListener("click", (e) => {
    auth.signInWithPopup(provider).then((result) => {
      var user = result.user;
      console.log(user)
-     var gitHubUser = user.displayName;
+     var gitHubUser = user.email;
      localStorage.setItem("user", gitHubUser);
      window.location.href = "index.html";
      })
