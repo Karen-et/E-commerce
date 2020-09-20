@@ -9,12 +9,6 @@
 
   showName();
 
-  //Desplegar al poner el cursor encima
-$('#options').hover(function(){	
-	$(this).find('ul').slideToggle('slow');	
-});
-
-
 // Cerrar Sesión
 
 var logOutBtn = document.querySelector("#logOut");

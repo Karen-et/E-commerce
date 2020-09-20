@@ -36,13 +36,16 @@
         <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-        <li id="options"> <a class="py-2 d-none d-md-inline-block" role="button" id="name"></a>
-        <ul style="display:none">
-          <li><a href="my-profile.html">Mi perfil</a></li>
-          <li><a href="login.html" id="logOut">Cerrar Sesión</a></li>
-        </ul>
-        </li>
+        <div class="dropdown show">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           
+          </a>
+          <div class="dropdown-menu" aria-labelledby="name">
+            <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+            <a class="dropdown-item" href="cart.html">Mi carrito</a>
+            <a class="dropdown-item" href="login.html" id="logOut">Cerrar Sesión</a>
+          </div>
+        </div>
       </div>
     </nav>
       <div class="container">
