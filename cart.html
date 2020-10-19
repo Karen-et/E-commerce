@@ -10,6 +10,8 @@
   <title>eMercado - Todo lo que busques está aquí</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/39f5ea38a7.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 
   <style>
@@ -57,20 +59,18 @@
 <!--Main checkout-->
 <main class="mt-5 pt-4">
   <div class="container wow fadeIn">
-    <h2 class="my-5 h2 text-center">Checkout</h2>
     <div class="row">
-      <!-- Primer columna -->
       <div class="col-md-8 mb-4">
         <!-- Formulario de envio -->
         <div class="card">
-          <form class="card-body">
+          <div class="card-body">
             <div class="row">
 
               <!--Nombre-->
               <div class="col-md-6 mb-2">
                 <div class="md-form ">
                   <label for="firstName" class="">Nombre</label>
-                  <input type="text" id="firstName" class="form-control" required>
+                  <input type="text" id="firstName" class="form-control data">
                 </div>
               </div>
 
@@ -78,7 +78,7 @@
               <div class="col-md-6 mb-2">
                 <div class="md-form">
                   <label for="lastName" class="">Apellido</label>
-                  <input type="text" id="lastName" class="form-control" required>
+                  <input type="text" id="lastName" class="form-control data">
                 </div>
               </div>
 
@@ -89,7 +89,7 @@
               <div class="col-md-6 mb-2">
                 <div class="md-form">
                   <label for="email" class="">Email</label>
-                  <input type="text" id="email" class="form-control" required>
+                  <input type="text" id="email" class="form-control data">
                 </div>
               </div>
               
@@ -105,7 +105,7 @@
             <!--Dirección-->
             <div class="md-form mb-5">
               <label for="address" class="">Dirección</label>
-              <input type="text" id="address" class="form-control" required>
+              <input type="text" id="address" class="form-control data">
             </div>
 
 
@@ -115,105 +115,85 @@
               <!-- País -->
               <div class="col-lg-4 col-md-12 mb-4">
                 <label for="country">País</label>
-                <select class="custom-select d-block w-100" id="country" required>
-                  <option value="">Elegir...</option>
-                  <option>Argentina</option>
-                  <option>Brasil</option>
-                  <option>Chile</option>
-                  <option>México</option>
-                  <option>Paraguay</option>
-                  <option>Uruguay</option>
+                <select class="custom-select d-block w-100" id="country">
+                  <option value="" disabled selected>Elegir...</option>
+                  <option value="1">Argentina</option>
+                  <option value="1">Brasil</option>
+                  <option value="1">Chile</option>
+                  <option value="1">México</option>
+                  <option value="1">Paraguay</option>
+                  <option value="1">Uruguay</option>
                 </select>
               </div>
 
               <!--Localidad-->
               <div class="col-lg-4 col-md-6 mb-4">
                 <label for="state">Localidad</label>
-                <input type="text" class="form-control" id="state" required>
+                <input type="text" class="form-control data" id="state">
               </div>
              
               <!-- Código Postal -->
               <div class="col-lg-4 col-md-6 mb-4">
                 <label for="zip">Código postal</label>
-                <input type="text" class="form-control" id="zip" required>
+                <input type="text" class="form-control data" id="zip">
               </div>
 
             </div>
 
             <hr>
-            <!-- <div class="d-block my-3">
+            <!-- Método de envio -->
+            <div class="d-block my-3" id="shipping">
+              <!-- Standard -->
               <div class="custom-control custom-radio">
-                <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-                <label class="custom-control-label" for="credit">Credit card</label>
+                <input id="standard" value="0.05" name="shippingMethod" type="radio" class="custom-control-input" checked onclick="updateShipping()">
+                <label class="custom-control-label" for="standard">
+                  <strong>Standard 12-15 días</strong>
+                  <small>5% sobre el subtotal</small>
+                </label>
               </div>
+              <!-- Express -->
               <div class="custom-control custom-radio">
-                <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-                <label class="custom-control-label" for="debit">Debit card</label>
+                <input id="express" value="0.07" name="shippingMethod" type="radio" class="custom-control-input" onclick="updateShipping()">
+                <label class="custom-control-label" for="express">
+                  <strong>Express 5-8 días</strong>
+                  <small>7% sobre el subtotal</small>
+                </label>
               </div>
+              <!-- Premium -->
               <div class="custom-control custom-radio">
-                <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-                <label class="custom-control-label" for="paypal">Paypal</label>
+                <input id="premium" value="0.15" name="shippingMethod" type="radio" class="custom-control-input" onclick="updateShipping()">
+                <label class="custom-control-label" for="premium">
+                  <strong>Premium 2-5 días</strong>
+                  <small>15% sobre el subtotal</small>
+                </label>
               </div>
             </div>
-            <hr> -->
-
-            <!-- Opciones de pago -->
-            <div class="d-block my-3">
-              <div class="custom-control custom-radio">
-                <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-                <label class="custom-control-label" for="credit">Tarjeta de crédito</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-                <label class="custom-control-label" for="debit">Transferencia bancaria</label>
-              </div>
-            </div>
-
-            <!-- Datos de la tarjeta -->
-
+            <hr>
+            <!-- Seleccionar método de pago -->
             <div class="row">
-              <!-- Nombre -->
-              <div class="col-md-6 mb-3">
-                <label for="cc-name">Nombre</label>
-                <input type="text" class="form-control" id="cc-name" required>
-                <small class="text-muted">Nombre completo como se escribe en la tarjeta</small>
-              </div>
-              <!-- Número -->
-              <div class="col-md-6 mb-3">
-                <label for="cc-number">Número</label>
-                <input type="text" class="form-control" id="cc-number" required>
-              </div>
+              <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#pagoModal">Seleccionar método de pago</button>
             </div>
 
-            <div class="row">
-              <!-- Expiración -->
-              <div class="col-lg-4 col-md-6 mb-4">
-                <label for="cc-expiration">Expiración</label>
-                <input type="month" class="form-control" id="cc-expiration" placeholder="" required>
-              </div>
-              <!-- CVV -->
-              <div class="col-md-3 mb-3">
-                <label for="cc-expiration">CVV</label>
-                <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-              </div>
-            </div>
-            
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Checkout</button>
+            <button id="checkout" class="btn btn-primary btn-lg btn-block">Checkout</button>
 
-          </form>
+          </div>
 
         </div>
-        <!--/.Card-->
-
+        <!--Formulario-->
       </div>
       <div class="col-md-4 mb-4">
 
+        <!-- Main img -->
+        <div class="mb-4">
+          <img class="img-fluid" src="img/cart.svg" alt="">
+        </div>
+
         <!-- Heading -->
-        <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="d-flex justify-content-between align-items-center mb-3">
           <span class="text-muted">Carrito</span>
           <span class="badge badge-secondary badge-pill" id="product_count">7</span>
-        </h4>
+        </h3>
 
         <!-- Carrito -->
         <ul class="list-group mb-3 z-depth-1" id="Cart">
@@ -240,16 +220,73 @@
           </li>
         </ul>
         <!-- Carrito -->
-
       </div>
-      <!--Grid column-->
-
     </div>
-    <!--Grid row-->
-
   </div>
 </main>
-<!--Main layout-->
+<!--Main-->
+
+<!-- Modal de método de pago -->
+<div class="modal fade" tabindex="-1" role="dialog" id="pagoModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Método de Pago</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+          <!-- Trasnferencia Bancaria -->
+          <div class="custom-control custom-radio">
+            <input id="bancaria" name="paymentMethod" type="radio" class="custom-control-input" checked>
+            <label class="custom-control-label" for="bancaria"><h6>Transferencia bancaria</h6></label>
+          </div>
+          <!-- Número de cuenta -->
+          <div class="col-md-6 mb-3">
+            <label for="banc_account">Cuenta</label>
+            <input type="text" class="form-control" id="banc_account">
+          </div>
+            
+          <!-- Tarjeta de crédito -->
+          <div class="custom-control custom-radio">
+            <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+            <label class="custom-control-label" for="debit"><h6>Tarjeta de crédito</h6></label>
+            </div>
+          <!-- Datos de la tarjeta -->
+          <div class="row">
+            <!-- Nombre -->
+            <div class="col-md-6 mb-3">
+              <label for="credit-name">Nombre</label>
+              <input type="text" class="form-control credit" id="credit-name">
+              <small class="text-muted">Nombre completo como se escribe en la tarjeta</small>
+            </div>
+            <!-- Número -->
+            <div class="col-md-6 mb-3">
+              <label for="credit-number">Tarjeta</label>
+              <input type="text" class="form-control credit" id="credit-number">
+            </div>
+          </div>
+          <div class="row">
+            <!-- Expiración -->
+            <div class="col-md-6 mb-3">
+              <label for="cc-expiration">Expiración</label>
+              <input type="month" class="form-control credit" id="cc-expiration">
+            </div>
+            <!-- CVV -->
+            <div class="col-md-3 mb-3">
+              <label for="cc-expiration">CVV</label>
+              <input type="name" class="form-control credit" id="cc-cvv" maxlength="3">
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
     
   <div id="spinner-wrapper">
@@ -266,6 +303,7 @@
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/showName.js"></script>
+  <script src="js/checkout.js"></script>
 </body>
 
 </html>
