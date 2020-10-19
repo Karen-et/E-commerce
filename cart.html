@@ -70,7 +70,7 @@
               <div class="col-md-6 mb-2">
                 <div class="md-form ">
                   <label for="firstName" class="">Nombre</label>
-                  <input type="text" id="firstName" class="form-control data">
+                  <input type="text" id="firstName" class="form-control data" autocomplete="off">
                 </div>
               </div>
 
@@ -78,7 +78,7 @@
               <div class="col-md-6 mb-2">
                 <div class="md-form">
                   <label for="lastName" class="">Apellido</label>
-                  <input type="text" id="lastName" class="form-control data">
+                  <input type="text" id="lastName" class="form-control data" autocomplete="off">
                 </div>
               </div>
 
@@ -89,7 +89,7 @@
               <div class="col-md-6 mb-2">
                 <div class="md-form">
                   <label for="email" class="">Email</label>
-                  <input type="text" id="email" class="form-control data">
+                  <input type="text" id="email" class="form-control data" autocomplete="off">
                 </div>
               </div>
               
@@ -97,7 +97,7 @@
               <div class="col-md-6 mb-2">
                 <div class="md-form">
                   <label for="phone" class="">Celular (opcional)</label>
-                  <input type="text" id="phone" class="form-control">
+                  <input type="text" id="phone" class="form-control" autocomplete="off">
                 </div>
               </div>
             </div>
@@ -105,7 +105,7 @@
             <!--Dirección-->
             <div class="md-form mb-5">
               <label for="address" class="">Dirección</label>
-              <input type="text" id="address" class="form-control data">
+              <input type="text" id="address" class="form-control data" autocomplete="off">
             </div>
 
 
@@ -129,13 +129,13 @@
               <!--Localidad-->
               <div class="col-lg-4 col-md-6 mb-4">
                 <label for="state">Localidad</label>
-                <input type="text" class="form-control data" id="state">
+                <input type="text" class="form-control data" id="state" autocomplete="off">
               </div>
              
               <!-- Código Postal -->
               <div class="col-lg-4 col-md-6 mb-4">
                 <label for="zip">Código postal</label>
-                <input type="text" class="form-control data" id="zip">
+                <input type="text" class="form-control data" id="zip" autocomplete="off">
               </div>
 
             </div>
@@ -171,7 +171,7 @@
             <hr>
             <!-- Seleccionar método de pago -->
             <div class="row">
-              <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#pagoModal">Seleccionar método de pago</button>
+              <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#paymentModal">Seleccionar método de pago</button>
             </div>
 
             <hr class="mb-4">
@@ -227,7 +227,7 @@
 <!--Main-->
 
 <!-- Modal de método de pago -->
-<div class="modal fade" tabindex="-1" role="dialog" id="pagoModal">
+<div class="modal fade" tabindex="-1" role="dialog" id="paymentModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -240,8 +240,8 @@
 
           <!-- Trasnferencia Bancaria -->
           <div class="custom-control custom-radio">
-            <input id="bancaria" name="paymentMethod" type="radio" class="custom-control-input" checked>
-            <label class="custom-control-label" for="bancaria"><h6>Transferencia bancaria</h6></label>
+            <input id="wire_transfer" name="paymentMethod" type="radio" class="custom-control-input">
+            <label class="custom-control-label" for="wire_transfer">Transferencia bancaria</label>
           </div>
           <!-- Número de cuenta -->
           <div class="col-md-6 mb-3">
@@ -251,8 +251,8 @@
             
           <!-- Tarjeta de crédito -->
           <div class="custom-control custom-radio">
-            <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-            <label class="custom-control-label" for="debit"><h6>Tarjeta de crédito</h6></label>
+            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked>
+            <label class="custom-control-label" for="credit">Tarjeta de crédito</label>
             </div>
           <!-- Datos de la tarjeta -->
           <div class="row">
@@ -265,7 +265,7 @@
             <!-- Número -->
             <div class="col-md-6 mb-3">
               <label for="credit-number">Tarjeta</label>
-              <input type="text" class="form-control credit" id="credit-number">
+              <input type="text" class="form-control credit" id="credit-number" maxlength="19">
             </div>
           </div>
           <div class="row">
@@ -288,6 +288,38 @@
   </div>
 </div>
 
+<!-- Modal para orden confirmada -->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="confirmed">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div>
+        <img class="img-fluid" src="img/Orden confirmada.png" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para campos incompletos -->
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="shippingfail">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="alert alert-warning" role="alert">
+        <h6>Debe ingresar todos los campos requeridos</h6>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para carrito vacío -->
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="emptyCart">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="alert alert-warning" role="alert">
+        <h6>Su carrito está vacío.</h6>
+      </div>
+    </div>
+  </div>
+</div>
     
   <div id="spinner-wrapper">
     <div class="lds-ring">

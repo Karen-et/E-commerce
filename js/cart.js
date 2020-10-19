@@ -51,9 +51,7 @@ function shippingCost(){
 // Determinar el precio final del pedido.
 
 function finalPrice(){
-  
   let total = totalItemsAndSubtotal() + shippingCost();
-
   document.getElementById("total").innerHTML = `${total}`;
 }
 
@@ -78,11 +76,6 @@ function deletedProduct(btn){
     parent.removeChild(product);
     updateData();
 }
-
-// Inhabiltar opción de pago si no está seleccionada.
-
-
-
 
 // Mostrar productos en el carrito.
 function showProductsCart(array){
