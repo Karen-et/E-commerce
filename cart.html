@@ -97,7 +97,7 @@
               <div class="col-md-6 mb-2">
                 <div class="md-form">
                   <label for="phone" class="">Celular (opcional)</label>
-                  <input type="text" id="phone" class="form-control" autocomplete="off">
+                  <input type="number" id="phone" class="form-control" autocomplete="off">
                 </div>
               </div>
             </div>
@@ -135,7 +135,7 @@
               <!-- Código Postal -->
               <div class="col-lg-4 col-md-6 mb-4">
                 <label for="zip">Código postal</label>
-                <input type="text" class="form-control data" id="zip" autocomplete="off">
+                <input type="number" class="form-control data" id="zip" autocomplete="off" maxlength="5">
               </div>
 
             </div>
@@ -192,7 +192,7 @@
         <!-- Heading -->
         <h3 class="d-flex justify-content-between align-items-center mb-3">
           <span class="text-muted">Carrito</span>
-          <span class="badge badge-secondary badge-pill" id="product_count">7</span>
+          <span class="badge badge-secondary badge-pill" id="product_count">0</span>
         </h3>
 
         <!-- Carrito -->
@@ -251,7 +251,7 @@
             
           <!-- Tarjeta de crédito -->
           <div class="custom-control custom-radio">
-            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked>
+            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input">
             <label class="custom-control-label" for="credit">Tarjeta de crédito</label>
             </div>
           <!-- Datos de la tarjeta -->
@@ -265,7 +265,7 @@
             <!-- Número -->
             <div class="col-md-6 mb-3">
               <label for="credit-number">Tarjeta</label>
-              <input type="text" class="form-control credit" id="credit-number" maxlength="19">
+              <input type="number" class="form-control credit" id="credit-number" maxlength="5">
             </div>
           </div>
           <div class="row">
@@ -277,7 +277,7 @@
             <!-- CVV -->
             <div class="col-md-3 mb-3">
               <label for="cc-expiration">CVV</label>
-              <input type="name" class="form-control credit" id="cc-cvv" maxlength="3">
+              <input type="number" class="form-control credit" id="cc-cvv" maxlength="3">
             </div>
         </div>
       </div>

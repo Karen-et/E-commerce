@@ -43,28 +43,23 @@ function showProductsList(){
         if (((minCount == undefined) || (minCount != undefined && product.cost >= minCount)) &&
             ((maxCount == undefined) || (maxCount != undefined && product.cost <= maxCount))){
 
-            htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1 name">`+ product.name +`</h4>
-                        <small class="text-muted">` + product.soldCount + ` vendidos</small>
-                    </div>
-                    <p class="mb-1 desc">` + product.description + `</p>
-                    <br>
-                    <h5>` + product.cost + ` ` + product.currency + `.</h5>
-                </div>
+        htmlContentToAppend += `
+        <div class="col-md-4 product">
+          <div class="card mb-4 shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="${product.imgSrc}" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <div class="card-body">
+            <h4 class="card-title"><strong class="name">${product.name}</strong></h4>
+            <h4>${product.cost} ${product.currency}</h4>
+            <div style= "height: 100px; overflow: auto;">
+            <p class="card-text desc">${product.description}</p>
             </div>
-            </a>
-        `
+            <a href="product-info.html" class="btn btn-primary">Ver producto</a>
+            </div>
+          </div>
+        </div>`
         }
-
-        document.querySelector("#cat-list-container").innerHTML = htmlContentToAppend;
     }
+    document.querySelector("#cat-list-container").innerHTML = htmlContentToAppend;
 }
 
 function sortAndShowProducts(sortCriteria, productsArray){
@@ -140,23 +135,24 @@ document.addEventListener("DOMContentLoaded", e =>{
 
 //Buscador
 
-var searchInput = document.querySelector("#search");
+const searchInput = document.querySelector("#search");
+const container = document.querySelector("#cat-list-container")
+var articules = document.getElementsByClassName("product");
+console.log(articules);
 
-searchInput.addEventListener("input", event =>{
-    let search = searchInput.value.toUpperCase();
-    let container = document.querySelector("#cat-list-container");
-    let articules = container.getElementsByTagName("a");
+ searchInput.addEventListener("input", event =>{
+     let search = searchInput.value.toUpperCase();
 
-    for(let articule of articules){
-        let name = articule.getElementsByClassName("name")[0].innerHTML;
-        let desc = articule.getElementsByClassName("desc")[0].innerHTML;
+     for(let articule of articules){
+         let name = articule.querySelector(".name").innerHTML;
+         let desc = articule.querySelector(".desc").innerHTML;
         
-        //Si el artículo no coincide con la busqueda lo oculta.
-        if(name.toUpperCase().includes(search) || desc.toUpperCase().includes(search)){
-            articule.style.display= "block";
-        } else{
-            articule.style.display= "none";
-        }
-    }
+         //Si el artículo no coincide con la busqueda lo oculta.
+         if(name.toUpperCase().includes(search) || desc.toUpperCase().includes(search)){
+             articule.style.display= "block";
+         } else{
+             articule.style.display= "none";
+         }
+     }
 
-})
+ })
