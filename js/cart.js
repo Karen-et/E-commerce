@@ -15,7 +15,7 @@ function itemSubTotal(product){
   let price = product.querySelector(".price");
   let count = product.querySelector(".count");
 
-  return parseInt(price.innerHTML)  * parseInt(count.value);
+  return parseInt(price.innerHTML) * parseInt(count.value);
 };
 
 // Contar la cantidad de productos en el carrito y determinar el subtotal.
@@ -42,7 +42,7 @@ function shippingCost(){
   let shippingMethod = document.querySelector("#shipping");
   let option = shippingMethod.querySelector(":checked").value;
    
-  let shippingCost = option * totalItemsAndSubtotal();
+  let shippingCost = Math.round(option * totalItemsAndSubtotal());
   
   document.querySelector("#send").innerHTML = `${shippingCost}`;
   return shippingCost;
