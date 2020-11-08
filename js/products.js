@@ -50,7 +50,7 @@ function showProductsList(){
             <div class="card-body">
                 <div class="row justify-content-between">
                 <h4 class="card-title"><strong class="col-sm-4 name">${product.name}</strong></h4>
-                <small class="col-sm-4"> ${product.soldCount} vendidos</small>
+                <small class="col-mb-4"> ${product.soldCount} vendidos</small>
                 </div>
                 <h4>${product.cost} ${product.currency}</h4>
                 <div>
