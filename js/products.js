@@ -44,17 +44,21 @@ function showProductsList(){
             ((maxCount == undefined) || (maxCount != undefined && product.cost <= maxCount))){
 
         htmlContentToAppend += `
-        <div class="col-md-4 product">
+        <div class="col-sm-4 product">
           <div class="card mb-4 shadow-sm">
-            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="${product.imgSrc}" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <img class="card-img-top" width="100%" height="225" src="${product.imgSrc}" preserveAspectRatio="xMidYMid slice" focusable="false">
             <div class="card-body">
-            <h4 class="card-title"><strong class="name">${product.name}</strong></h4>
-            <h4>${product.cost} ${product.currency}</h4>
-            <div style= "height: 100px; overflow: auto;">
-            <p class="card-text desc">${product.description}</p>
-            </div>
-            <a href="product-info.html" class="btn btn-primary">Ver producto</a>
-            </div>
+                <div class="row justify-content-between">
+                <h4 class="card-title"><strong class="col-sm-4 name">${product.name}</strong></h4>
+                <small class="col-sm-4"> ${product.soldCount} vendidos</small>
+                </div>
+                <h4>${product.cost} ${product.currency}</h4>
+                <div>
+                <p style="height: 5em; overflow: auto;" class="card-text desc">${product.description}</p>
+                </div>
+                <br>
+                    <a href="product-info.html" class="btn btn-primary">Ver producto</a>
+        </div>
           </div>
         </div>`
         }

@@ -91,7 +91,7 @@ function changeAvatar(){
     // Cuando se carga la imagen en el lector se cambia el avatar
     // y se setea la nueva URL en localStorage.
     image.addEventListener("load", () =>{
-        newURL = image.result;
+        let newURL = image.result;
         document.getElementById("avatar").src = newURL;
         localStorage.setItem("userAvatar", newURL);
     })

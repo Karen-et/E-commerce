@@ -190,5 +190,15 @@ input[type=number].form-control::-webkit-outer-spin-button {
 @media screen and (max-width: 700px){
 	.img{
 		display: none;
-	}
+  }
+  
+  #form{
+    order: 2;
+  }
+
+  #myCart{
+    order: 1;
+  }
+  
 }
+
